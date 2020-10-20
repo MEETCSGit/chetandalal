@@ -1,6 +1,7 @@
 
 application/config/config.php
 application/config/database.php
+lms/config.php
 application/logs/*
 phpmyadmin/*
 backup_mail/*
