@@ -206,15 +206,15 @@
           </div>
         <?php }?>
       </div>
-      <?php if($this->authorize->checkAliveSession()){?>
-      <div class="row">
+      <?php //if($this->authorize->checkAliveSession()){?>
+     <!--  <div class="row">
         <div class="col-md-12">
           <center>
             <marquee><h4><?php echo @$enrol_msg; ?></h4></marquee>
           </center>
         </div>
-      </div>
-      <?php } ?>
+      </div> -->
+      <?php//} ?>
     </div>
   </div>
   <div class="wow fadeInDown navigation" data-offset-top="197" data-spy="affix">
@@ -228,31 +228,31 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="<?php echo @$pageid == 1 ?  'active' : '' ;?>"><a href="<?php echo base_url();?>">Home</a></li> 
-              <li class="dropdown <?php echo @$pageid == 2 ?  'active' : '' ;?>"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultancy <i class="fa fa-angle-down"></i></a>
+              <!-- <li class="<?php echo @$pageid == 1 ?  'active' : '' ;?>"><a href="<?php echo base_url();?>">Home</a></li> -->
+             <!--  <li class="dropdown <?php echo @$pageid == 2 ?  'active' : '' ;?>"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultancy <i class="fa fa-angle-down"></i></a>
                 <ul class="dropdown-menu">
                   <li><a href="<?php echo base_url('consultancy/#Investigations');?>" alt="Statutory investigations,Corporate investigations,Insurance investigations,Open source intelligence">Investigations </a></li>
                   <li><a href="<?php echo base_url('consultancy/#SpecialAudits');?>" alt="Special Audits"> Special Audits </a></li>
                   <li><a href="<?php echo base_url('consultancy/#ForensicAuditing');?>">Forensic Auditing </a></li>
                   <li><a href="<?php echo base_url('consultancy/#RiskAssessment');?>">Risk Assessment </a></li>
                 </ul>
-              </li>
-              <li class="<?php echo @$pageid == 3 ?  'active' : '' ;?>"><a href="<?php echo base_url('expert');?>">Our Experts</a></li> 
+              </li> -->
+              <!-- <li class="<?php echo @$pageid == 3 ?  'active' : '' ;?>"><a href="<?php echo base_url('expert');?>">Our Experts</a></li>  -->
               <li class="<?php echo @$pageid == 4 ?  'active' : '' ;?>"><a href="<?php echo base_url('courses');?>">Courses</a></li>
 
               <!-- <li ><a href="<?php echo base_url('testimonials');?>">Testimonials</a></li> -->
-              <li class="<?php echo @$pageid == 5 ?  'active' : '' ;?>"><a href="<?php echo base_url('awards');?>">Awards</a></li>
-              <li class="<?php echo @$pageid == 6 ?  'active' : '' ;?>"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Publications <i class="fa fa-angle-down"></i></a>
+            <!--   <li class="<?php echo @$pageid == 5 ?  'active' : '' ;?>"><a href="<?php echo base_url('awards');?>">Awards</a></li> -->
+              <!-- <li class="<?php echo @$pageid == 6 ?  'active' : '' ;?>"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Publications <i class="fa fa-angle-down"></i></a>
                 <ul class="dropdown-menu">
                   <li><a href="<?php echo base_url('books');?>">Books </a></li>
                   <li><a href="<?php echo base_url('articles');?>" alt="articles">Articles </a></li>
                   <li><a href="<?php echo "http://blogs.chetandalal.com/";?>" title="chetandalal blogs" alt="chetandalal blogs">Blogs </a></li>
                   <li><a href="<?php echo base_url('case-studies');?>">Case Studies </a></li>
-                 <!--  <li><a href="<?php //echo base_url('blogs');?>" alt="Blogs">Blogs </a></li> -->
+                 <li><a href="<?php //echo base_url('blogs');?>" alt="Blogs">Blogs </a></li>
                 </ul>
-              </li>
+              </li> -->
               <li class="<?php echo @$pageid == 7 ?  'active' : '' ;?>"><a href="<?php echo base_url('contactus');?>">Contact Us</a></li>
-              <li class="<?php echo @$pageid == 9 ?  'active' : '' ;?>"><a href="<?php echo base_url('careers');?>">Careers</a></li>
+              <!-- <li class="<?php echo @$pageid == 9 ?  'active' : '' ;?>"><a href="<?php echo base_url('careers');?>">Careers</a></li> -->
 
               <?php if(!$this->authorize->checkAliveSession()){?>
               <li class="hidden-sm hidden-md hidden-lg <?php echo @$pageid == 8 ?  'active' : '' ;?>"><a  href="<?php echo base_url('login');?>">Login</a></li>
