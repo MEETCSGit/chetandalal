@@ -5,3 +5,5 @@ lms/config.php
 application/logs/*
 phpmyadmin/*
 backup_mail/*
+assets/docs/*
+assets/img/profile/*

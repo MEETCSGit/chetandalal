@@ -1,0 +1,10 @@
+function addLoader(){$("#dvLoading").show()}
+function removeLoader(){$("#dvLoading").hide()}
+function callAjax(e,a){isSubmitting=!0,console.log(e.seralize),$.ajax({url:a,type:"POST",dataType:"json",data:e,contentType:!1,processData:!1,beforeSend:function(){$("button[type='submit']").attr("disabled","disabled"),$("input[type='submit']").attr("disabled","disabled"),addLoader()},success:function(e){console.log("success"),console.log(e),1==e.res_code&&callfunction(e)},complete:function(e){console.log("complete"),isSubmitting=!1,removeLoader(),$("button[type='submit']").removeAttr("disabled"),$("input[type='submit']").removeAttr("disabled")}})}
+function customAjax(e,a){a=JSON.parse(a),$.ajax({url:e,type:"POST",dataType:"json",data:a,success:function(e){console.log("success"),1==e.res_code&&callfunction(e)}})}
+function callfunction(e){switch(console.log(e),e.method){case"loginErrorMsg":loginErrorMsg(e);break;case"RegSuccMsg":RegSuccMsg(e);break;case"RegErrorMsg":RegErrorMsg(e);break;case"recRegSuccMsg":recRegSuccMsg(e);break;case"Newsletter":Newsletter(e);break;case"SuccMsgNoRefresh":SuccMsgNoRefresh(e);break;case"reload":reload();break;case"userRating":userRating(e);break;case"feedbackalert":feedbackalert(e);break;case"RegInfoMsg":RegInfoMsg(e)
+case"recRegisterSuccMsg":recRegisterSuccMsg(e);}}
+function callClientValidation(e){switch(e){case"validate_register":return validateRegForm();case"validate_business":return validateBusiForm();default:return!0}}
+function feedbackalert(e){swal(e.heading,e.feedback)}
+function RegInfoMsg(e){swal("Information",e.message,"info")}
+$(document).ready(function(){$("form").on("submit",function(e){formname=$(this).attr("name");var a=["frmSearchsanatha","frmSearchjobview","payuForm","loginForm","frmflaggedusers"],t=0;$.each(a,function(e,a){formname==a&&(t=1)}),1!=t&&(e.preventDefault(),fd=new FormData(this),page=$(this).attr("action"),method="","login_form"!=formname&&(method=$("#doValidation").val()),callClientValidation(method)&&callAjax(fd,page))})});

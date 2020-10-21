@@ -1,0 +1,334 @@
+.pointer{
+  cursor: pointer;
+}
+.banner_classroom_course{
+  background-color: rgba(0,0,0,0.8);padding: 10px 10px 0 10px;border-radius:5px 5px 0px 0px;
+}
+.banner_classroom_course_1{
+  background-color: rgba(0,0,0,0.8);padding:3px 10px 10px 10px ;border-radius:5px 5px 0px 0px;
+}
+.rajesh .nav>li>a{
+  padding: 0px 0px !important; 
+}
+.top-wrapper .rajesh ul li ul li:first-child{
+  padding: 0px 0px 0px 10px !important; 
+}
+.rajesh .nav .open>a, .rajesh .nav .open>a:focus, .rajesh .nav .open>a:hover{
+  background-color: transparent !important; 
+}
+.top-wrapper .rajesh ul li {
+  margin: 0px 0px 0px 0px !important; 
+  padding: 0px 0px 0px 10px !important; 
+}
+.rajesh .nav>li>a:focus, .rajesh .nav>li>a:hover{
+  text-decoration: none !important;
+  background-color: transparent !important; 
+}
+.partner{
+  list-style-type: none !important;
+}
+.partner-logo{
+  display: inline !important;
+}
+.header_logo_chetandalal{
+  height:56px;
+}
+.header_logo_stantons{
+  height:35px;padding-left: 25px;margin-top: 10px;
+}
+.header_logo_gfsu_logo{
+  height:35px;margin-top: 10px;
+}
+
+
+
+
+.custom_center{
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+}
+.zero_padding_margin{
+	padding: 0px !important;
+	margin: 0px !important;
+}
+.zero_padding_0_0_10_0{
+  padding: 0px 0px 10px 0px !important;
+  margin: 0px !important;
+}
+.zero_margin{
+  margin-top: -2px !important;
+  margin-bottom: 0px !important;
+}
+.offset-top-160{
+  margin-top: 160px;
+}
+
+.custom_call_to_action{
+	height: 100%;
+	border-top:none;  
+  //background-color: rgba(0, 0, 0, 0.53);;
+}
+
+.custom_padding_top_30{
+  padding-top:30px; 
+}
+/*
+================================================
+12. Call to Action
+================================================
+*/
+.custom_call-to-action {
+  padding: 90px 0 116px;
+  width: 100%;
+  float: left;
+  clear: both;
+  //background-image: url(../images/cta-bg.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 9;
+  position: relative;
+  border-top: 0px solid #dedede;
+  text-align:center;
+}
+.custom_call-to-action:before {
+  background: #000;
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0.2;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.custom_call-to-action h3 {
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.custom_call-to-action p {
+  margin-bottom: 40px;
+  color:#fff;
+}
+.custom_call-to-action a {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  padding: 15px 40px;
+  font-size:20px;
+  color:#fff;
+  text-transform:uppercase;
+  background: #2f506c;
+}
+.custom_call-to-action a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #444;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.custom_call-to-action a:hover, .custom_call-to-action a:focus, .custom_call-to-action a:active {
+  color: #fff;
+}
+.custom_call-to-action a:hover:before, .custom_call-to-action a:focus:before, .custom_call-to-action a:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+hr.style18 { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+} 
+hr.style18:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+}
+#sponsers h5{
+  vertical-align:text-bottom;
+  text-align:center;
+  position: absolute;
+  top:190px;
+  left:33%;
+  margin: auto;
+  padding: 0;
+  font-weight: 600;
+}
+.about_justify p{
+  text-align: justify !important;
+}
+
+.no_deco{
+    display: inline-block !important;
+    vertical-align: middle !important;
+    -webkit-transform:none !important;
+    transform: none !important;
+    box-shadow: none !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 14px;
+    color: #2f506c;
+    border: none !important;
+}
+.no_deco:before{
+  color: #2f506c !important;
+  background:none !important;
+}
+.no_deco:hover{
+  color: #2f506c !important;
+  background:none !important;
+}
+.inner-banner_custom{
+  background-image: url(../img/awards/ps4-trophies.png);
+  background-position: center center;
+  background-size: cover;
+  float: left;
+  padding: 30px 0 10px;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  text-align: center;
+}
+.inner-banner_custom::before {
+  background: rgba(0, 0, 0, 0.15);
+
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.inner-banner_custom h2 {
+    color: #fff;
+    font-size: 30px;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+.box_award img {
+  object-fit: fill !important;
+}
+.course-thumb img{
+  object-fit:cover !important;  
+}
+.link_hover{
+  color:#000;
+  font-weight: 700;
+}
+.link_hover:hover{
+  color:#6091ba;
+}
+.case_studies_custom_border{
+  border: 1px solid rgba(142, 164, 183, 0.54);
+  border-radius: 9px;
+  padding: 20px;
+  background-color: rgba(240, 248, 255, 0.42);
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.text_animate{
+    color: #f35626 !important;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    background: linear-gradient(259deg, #c31cae, #6aeaf2, #13943a, #d47222, #d47222, #b41251, #e40606);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color transparent;
+    -webkit-animation: hue 8s infinite linear;
+}
+
+@-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+      -webkit-filter: hue-rotate(360deg);
+    }
+}
+
+/*Custom Popup CSS*/
+.popupbox {
+ width:500px;
+ height:300px;
+ background-image:url(images/pop-up_03.png);
+ background-repeat:no-repeat;
+ display: none; /* Hidden as default */
+ float: left;
+ position: fixed;
+ top: 50%; left: 50%;
+ z-index: 99999;
+ -webkit-box-shadow: 0px 0px 20px #000;
+ -moz-box-shadow: 0px 0px 20px #000;
+ box-shadow: 0px 0px 20px #000;
+}
+.popupbox2 {
+ width:454px;
+ height:307px;
+ //background-image:url(images/pu_03.png);
+ background-repeat:no-repeat;
+ display: none;
+ float: left;
+ position: fixed;
+ top: 50%; left: 50%;
+ z-index: 99999;
+ -webkit-box-shadow: 0px 0px 20px #000;
+ -moz-box-shadow: 0px 0px 20px #000;
+ box-shadow: 0px 0px 20px #000;
+}
+
+#fade {
+ display: none; /* Hidden as default */
+ background: #000;
+ position: fixed; left: 0; top: 0;
+ width: 100%; height: 100%;
+ opacity: .80;
+ z-index: 9999;
+}
+
+/*End custom popup*/
