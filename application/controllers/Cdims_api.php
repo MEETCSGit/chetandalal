@@ -314,11 +314,11 @@ class Cdims_api extends CI_Controller {
 		$config['priority'] = 1;
 		$this->load->library('email');	
 		$this->email->initialize($config);	
-		$this->email->from('training@chetandalal.com', 'chetandalal.com');
+		$this->email->from('training@cdimsacademy.com', 'CDIMS Academy');
 		$this->email->to($data['email']);
 		if($data['udf3']=='olc'){
-			//$this->email->cc('elearning_enrol@chetandalal.com');
-			$this->email->cc('nadar.rajeshnadar@gmail.com');
+			//$this->email->cc('elearning_enrol@cdimsacademy.com');
+			$this->email->bcc('atul.adhikari@camplus.co.in');
 		}	
 		$this->email->subject($data['subject']);
 		$template_email=$this->load->view('web/transaction_success_mail_template',$data,true);
@@ -332,8 +332,8 @@ class Cdims_api extends CI_Controller {
 		$config['priority'] = 1;
 		$this->load->library('email');	
 		$this->email->initialize($config);	
-		$this->email->from('support@chetandalal.com', 'chetandalal.com');
-		$this->email->to('nadar.rajeshnadar@gmail.com');		
+		$this->email->from('training@cdimsacademy.com', 'CDIMS Academy');
+		$this->email->to('atul.adhikari@camplus.co.in');		
 	
 		$this->email->subject('Downtime user payment ');
 		$template_email="
@@ -348,7 +348,7 @@ class Cdims_api extends CI_Controller {
 	/*public function mail_for_user_registration_test(){
 		$data=array(
 					'link'=>base_url('register/verifyemail/'.@$data['lms_id'].'/'.@$data['hash']),
-					'email'=>'nadar.rajeshnadar@gmail.com',
+					'email'=>'atul.adhikari@camplus.co.in',
 					'firstname'=>'rajesh'					
 				);
 		$config['protocol']         = 'sendmail'; 

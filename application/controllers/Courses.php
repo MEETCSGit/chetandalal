@@ -24,8 +24,8 @@ class Courses extends CI_Controller {
 		$this->load->database();
 		$this->load->helper(array('url','html','api_helper'));
 		$this->load->library(array('session','form_validation'));
-		error_reporting(E_ALL);
-		ini_set('display_errors', 1);	
+		// error_reporting(E_ALL);
+		// ini_set('display_errors', 1);	
 	}
 	/**
 	 * home page
@@ -67,6 +67,10 @@ class Courses extends CI_Controller {
 			$audit_log=array('page'=>"Courses",'action'=>'3','description'=>'Navigated to online course');	
 			$this->authorize->audit_log($audit_log);  
 			$this->load->view('web/course_online_trailers');
+		}else if($id==3){
+			$audit_log=array('page'=>"Courses",'action'=>'3','description'=>'Navigated to online course');	
+			$this->authorize->audit_log($audit_log);  
+			$this->load->view('web/course_excel_trailers');
 		}
 		else{			
 			$audit_log=array('page'=>"Courses",'action'=>'3','description'=>'Navigated to classrom course');
@@ -142,7 +146,8 @@ class Courses extends CI_Controller {
 		$this->send_request_mail($data);
 		$response['res_code']=1;      		
     	$response['message']="Course request raised successfully.";
-    	$response['method']="RegSuccMsg";      	
+    	$response['method']="RegSuccMsg"; 
+    	$response['path']=base_url();
 		$audit_log=array('page'=>"Courses",'action'=>'1','description'=>'Requested new course to be started');
 		$this->authorize->audit_log($audit_log);       	       	
     	print_r(json_encode($response));
@@ -152,9 +157,9 @@ class Courses extends CI_Controller {
 		$config['priority'] = 1;
 		$this->load->library('email');	
 		$this->email->initialize($config);	
-		$this->email->from('support@chetandalal.com', 'chetandalal.com');
+		$this->email->from('training@cdimsacademy.com', 'cdimsacademy.com');
 		$this->email->to($data['email']);		
-		$this->email->cc('training@chetandalal.com');
+		//$this->email->cc('training@chetandalal.com');
 		$this->email->subject('Chetandalal - Training Request  ');
 		$template_email=$this->load->view('web/Course_request_mail_template',$data,true);
 		$this->email->message($template_email);		

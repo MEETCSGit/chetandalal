@@ -74,7 +74,7 @@ class Reminder extends CI_Controller {
 	 */
 	private function sendMailWebAdminUsers($to_mailids, $mailsubject, $content){
 		$this->load->library('email');
-		$this->email->from('support@chetandalal.com', 'chetandalal.com');
+		$this->email->from('training@cdimsacademy.com', 'cdimsacademy.com');
 		$mailbody['content'] = $content;
 		foreach ($to_mailids as $tomail) {
 			$this->email->subject($mailsubject);

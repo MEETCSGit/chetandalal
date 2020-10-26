@@ -98,9 +98,9 @@ class Register extends CI_Controller {
 		}else{
 			$response['res_code']=1;
 			$response['method']='recRegisterSuccMsg';
-			$response['title']='<h4><b>Thank you for registering with us. Please check your mail and verify your account.</b></h4><hr>';
+			$response['title']='<h4><b>Thank you for registering with us.</b></h4><hr>';
 			/*$response['message']='<div class="row"><center><div class="col-md-12"><h4><u><a target="_blank" href="'.base_url('courses/course_details/1').'">Classroom Course<br/><small><font color="red" style="font-size: 13px">(Special 10% discount for limited period)</font></small></h4></div><div class="col-md-12"><h4>Forensic Accounting Certification 19 - 21 Jan, Mumbai</a></u></h4></div></center></div>';*/
-			$response['message']='<div class="row"><center><div class="col-md-12"><h4><u><a target="_blank" href="'.base_url('courses/course_details/1').'">Classroom Course</a></u></h4></div></center></div>';
+			$response['message']='<div class="row">Please check your mail and verify your account.</div>';
 			$response['redirect_to']=base_url('login');
 			$userid = $restres[0];
 			$roleid = 5;  // roleid : 5 student
@@ -269,6 +269,25 @@ class Register extends CI_Controller {
 	  				$this->registerm->update_coupon_code_used($coupon_code_data[0]['coupon_code']);
 	  			}	  				
 	  			$audit_log=array('page'=>"Register",'action'=>'1','description'=>'Enrolled for online course.');
+				$this->authorize->audit_log($audit_log);
+	  			$data['subject']=@$data['firstname'].", Successful Enrollment - Chetandalal Online Course";
+	  		}else if($data['udf3']==='oec'){
+	  			$coupon_code_data=$this->registerm->get_transaction_coupon_code($data['oid']);
+	  			$this->enrolUserRest(5,$data['user_id'],8);	  				  			
+	  			if(!empty(@$coupon_code_data[0]['coupon_code'])){
+	  				$this->registerm->update_coupon_code_used($coupon_code_data[0]['coupon_code']);
+	  			}	  				
+	  			$audit_log=array('page'=>"Register",'action'=>'1','description'=>'Enrolled for excel course.');
+				$this->authorize->audit_log($audit_log);
+	  			$data['subject']=@$data['firstname'].", Successful Enrollment - Chetandalal Online Course";
+	  		}else if($data['udf3']==='occ'){
+	  			$coupon_code_data=$this->registerm->get_transaction_coupon_code($data['oid']);
+	  			$this->enrolUserRest(5,$data['user_id'],10);
+	  			$this->enrolUserRest(5,$data['user_id'],8);	  				  			
+	  			if(!empty(@$coupon_code_data[0]['coupon_code'])){
+	  				$this->registerm->update_coupon_code_used($coupon_code_data[0]['coupon_code']);
+	  			}	  				
+	  			$audit_log=array('page'=>"Register",'action'=>'1','description'=>'Enrolled for both course.');
 				$this->authorize->audit_log($audit_log);
 	  			$data['subject']=@$data['firstname'].", Successful Enrollment - Chetandalal Online Course";
 	  		}else if($data['udf3']==='git'){	
@@ -499,6 +518,115 @@ class Register extends CI_Controller {
 		$this->load->view('web/payment_online_course');
 		$this->load->view('web/footer');
 	}
+
+	// public function register_for_course_online($cd=''){
+	// 	//if($this->session->userdata('user_id')!=2){
+	// 		// $this->load->view('web/header');
+	// 		// $this->load->view('web/downtime');
+	// 		// $this->load->view('web/footer');
+	// 		// return;
+	// 	//}
+	// 	if(!empty($cd)){
+	// 		$this->load->library('user_agent');
+	// 		//print_r($cd);
+	// 		if ($this->agent->is_referral()){
+	// 		    $cd= base64_decode(base64_decode(base64_decode(urldecode($cd))));
+	// 		    $data=$this->registerm->get_coupon_code($cd);			   
+	// 		    if(!empty($data)){
+	// 		    	if(stristr($this->agent->referrer(),@$data[0]['domian'])!==FALSE){
+	// 		    		$this->session->set_userdata('coupon_code',$cd);			    		  		
+	// 		    	}
+	// 		    }
+	// 		}
+	// 	}
+	// 	$data=keyword_desc();
+	// 	if($this->session->userdata('coupon_code')!=''){			
+	// 		$data['coupon_code']=$this->session->userdata('coupon_code');
+	// 	}		
+	// 	if(!$this->authorize->checkAliveSession()){
+	// 		redirect("login",'refresh');
+	// 	}		
+	// 	$audit_log=array('page'=>"Register",'action'=>'8','description'=>'Redirected to payment for online course.');
+	// 	$this->authorize->audit_log($audit_log);
+	// 	// print_r("expression");
+	// 	// exit();
+	// 	$this->load->view('web/header',$data);
+	// 	$this->load->view('web/payment_online_course');
+	// 	$this->load->view('web/footer');
+	// }
+
+	public function register_for_excel_online($cd=''){
+		//if($this->session->userdata('user_id')!=2){
+			// $this->load->view('web/header');
+			// $this->load->view('web/downtime');
+			// $this->load->view('web/footer');
+			// return;
+		//}
+		if(!empty($cd)){
+			$this->load->library('user_agent');
+			//print_r($cd);
+			if ($this->agent->is_referral()){
+			    $cd= base64_decode(base64_decode(base64_decode(urldecode($cd))));
+			    $data=$this->registerm->get_coupon_code($cd);			   
+			    if(!empty($data)){
+			    	if(stristr($this->agent->referrer(),@$data[0]['domian'])!==FALSE){
+			    		$this->session->set_userdata('coupon_code',$cd);			    		  		
+			    	}
+			    }
+			}
+		}
+		$data=keyword_desc();
+		if($this->session->userdata('coupon_code')!=''){			
+			$data['coupon_code']=$this->session->userdata('coupon_code');
+		}		
+		if(!$this->authorize->checkAliveSession()){
+			redirect("login",'refresh');
+		}		
+		$audit_log=array('page'=>"Register",'action'=>'8','description'=>'Redirected to payment for online course.');
+		$this->authorize->audit_log($audit_log);
+		// print_r("expression");
+		// exit();
+		$this->load->view('web/header',$data);
+		$this->load->view('web/payment_excel_course');
+		$this->load->view('web/footer');
+	}
+
+	public function register_for_combine_course($cd=''){
+		//if($this->session->userdata('user_id')!=2){
+			// $this->load->view('web/header');
+			// $this->load->view('web/downtime');
+			// $this->load->view('web/footer');
+			// return;
+		//}		
+		if(!empty($cd)){
+			$this->load->library('user_agent');
+			//print_r($cd);
+			if ($this->agent->is_referral()){
+			    $cd= base64_decode(base64_decode(base64_decode(urldecode($cd))));
+			    $data=$this->registerm->get_coupon_code($cd);			   
+			    if(!empty($data)){
+			    	if(stristr($this->agent->referrer(),@$data[0]['domian'])!==FALSE){
+			    		$this->session->set_userdata('coupon_code',$cd);			    		  		
+			    	}
+			    }
+			}
+		}
+		$data=keyword_desc();
+		if($this->session->userdata('coupon_code')!=''){			
+			$data['coupon_code']=$this->session->userdata('coupon_code');
+		}		
+		if(!$this->authorize->checkAliveSession()){
+			redirect("login",'refresh');
+		}		
+		$audit_log=array('page'=>"Register",'action'=>'8','description'=>'Redirected to payment for online course.');
+		$this->authorize->audit_log($audit_log);
+		// print_r("expression");
+		// exit();
+		$this->load->view('web/header',$data);
+		$this->load->view('web/payment_combine_course');
+		$this->load->view('web/footer');
+	}
+
 	public function payment_for_course(){		
 		$amount=0;//Amount initalized to zero for implementing coupon code
 		
@@ -521,6 +649,7 @@ class Register extends CI_Controller {
 			return;
 			//exit;
 		}	*/	
+		
 		$data['udf1']='';
 		$data['udf2']='';
 		$data['udf3']=$_POST['c_type_hid'];//crc -classroom course olc- online course
@@ -531,9 +660,11 @@ class Register extends CI_Controller {
 		}
 		if($data['udf3']==="olc"){			
 			$data['productinfo']="Online Course";
-			$data['amount']=$this->olc_amt;
+			//$data['amount']=$this->olc_amt;
+			$data['amount']=11500;
 			$o_data['course_id']=10;
-			$o_data['order_amt']=$this->olc_amt;
+			//$o_data['order_amt']=$this->olc_amt;
+			$o_data['order_amt']=11500;
 			$o_data['billing_name']=$this->input->post('billing_name');
 			$o_data['address']=$this->input->post('billing_address');
 			$o_data['reverse_charge']=empty($this->input->post('reverse_charge'))?0:1;
@@ -552,7 +683,8 @@ class Register extends CI_Controller {
 				}
 				//check coupon is used or not
 				if(@$coupon_data[0]['is_used']==0 || @$coupon_data[0]['multiple_use']==1 || $this->session->userdata('coupon_code')!=''){
-					$amount=$coupon_data[0]['amount'];
+					// $amount=$coupon_data[0]['amount'];
+					$amount=1;
 					$data['amount']=$data['amount']-$amount;					
 					$o_data['order_amt']=$data['amount'] + ($data['amount'] * (18/100)); //calculation 18% GST with coupon
 					$data['order_amt'] = $o_data['order_amt'];
@@ -567,7 +699,91 @@ class Register extends CI_Controller {
 			print_r($o_data);
 			exit;*/
 			
-		}elseif($data['udf3']==="crc"){
+		}elseif($data['udf3']==="oec"){			
+			$data['productinfo']="Online Excel Course";
+			//$data['amount']=$this->olc_amt;
+			$data['amount']=2500;
+			$o_data['course_id']=8;
+			//$o_data['order_amt']=$this->olc_amt;
+			$o_data['order_amt']=2500;
+			$o_data['billing_name']=$this->input->post('billing_name');
+			$o_data['address']=$this->input->post('billing_address');
+			$o_data['reverse_charge']=empty($this->input->post('reverse_charge'))?0:1;
+			if($o_data['reverse_charge']){
+				$o_data['gstin_no']=$this->input->post('gstin');
+			}
+			/*Coupon code implementation*/
+			if(!empty($this->input->post('coupon_code'))){
+				$coupon_data=$this->registerm->get_coupon_code($this->input->post('coupon_code'));
+				if(!$this->validate_coupon_code($this->input->post('coupon_code')))//chcek date validity
+				{
+					$response['res_code']=0;      		
+				    $response['message']="Coupon code is invalid!";
+				    $response['coupon_code']=$this->input->post('coupon_code');
+					redirect(base_url('register/register-for-course-online?message='.urlencode(base64_encode(json_encode($response)))),'refresh');
+				}
+				//check coupon is used or not
+				if(@$coupon_data[0]['is_used']==0 || @$coupon_data[0]['multiple_use']==1 || $this->session->userdata('coupon_code')!=''){
+					// $amount=$coupon_data[0]['amount'];
+					$amount=1;
+					$data['amount']=$data['amount']-$amount;					
+					$o_data['order_amt']=$data['amount'] + ($data['amount'] * (18/100)); //calculation 18% GST with coupon
+					$data['order_amt'] = $o_data['order_amt'];
+				}
+			}
+			else{
+				$o_data['order_amt']=$data['amount'] + ($data['amount'] * (18/100)); //calculation 18% GST without coupon
+				$data['order_amt'] = $o_data['order_amt'];
+			}
+			/*Coupon code implementation end*/
+			/*echo "<pre>";
+			print_r($o_data);
+			exit;*/
+			
+		}
+		elseif($data['udf3']==="occ"){			
+			$data['productinfo']="Online Excel Course & CFACFI Course";
+			//$data['amount']=$this->olc_amt;
+			$data['amount']=12500;
+			$o_data['course_id']=999;
+			//$o_data['order_amt']=$this->olc_amt;
+			$o_data['order_amt']=12500;
+			$o_data['billing_name']=$this->input->post('billing_name');
+			$o_data['address']=$this->input->post('billing_address');
+			$o_data['reverse_charge']=empty($this->input->post('reverse_charge'))?0:1;
+			if($o_data['reverse_charge']){
+				$o_data['gstin_no']=$this->input->post('gstin');
+			}
+			/*Coupon code implementation*/
+			if(!empty($this->input->post('coupon_code'))){
+				$coupon_data=$this->registerm->get_coupon_code($this->input->post('coupon_code'));
+				if(!$this->validate_coupon_code($this->input->post('coupon_code')))//chcek date validity
+				{
+					$response['res_code']=0;      		
+				    $response['message']="Coupon code is invalid!";
+				    $response['coupon_code']=$this->input->post('coupon_code');
+					redirect(base_url('register/register-for-course-online?message='.urlencode(base64_encode(json_encode($response)))),'refresh');
+				}
+				//check coupon is used or not
+				if(@$coupon_data[0]['is_used']==0 || @$coupon_data[0]['multiple_use']==1 || $this->session->userdata('coupon_code')!=''){
+					// $amount=$coupon_data[0]['amount'];
+					$amount=1;
+					$data['amount']=$data['amount']-$amount;					
+					$o_data['order_amt']=$data['amount'] + ($data['amount'] * (18/100)); //calculation 18% GST with coupon
+					$data['order_amt'] = $o_data['order_amt'];
+				}
+			}
+			else{
+				$o_data['order_amt']=$data['amount'] + ($data['amount'] * (18/100)); //calculation 18% GST without coupon
+				$data['order_amt'] = $o_data['order_amt'];
+			}
+			/*Coupon code implementation end*/
+			/*echo "<pre>";
+			print_r($o_data);
+			exit;*/
+			
+		}
+		elseif($data['udf3']==="crc"){
 			$data['udf1']=@$_POST['courselist'];
 			$data['udf2']=@$_POST['location'];
 			$data['productinfo']="Classroom Course -3 day Certification";
@@ -747,7 +963,7 @@ class Register extends CI_Controller {
 		$config['priority'] = 1;
 		$this->load->library('email');	
 		$this->email->initialize($config);	
-		$this->email->from('support@chetandalal.com', 'chetandalal.com');
+		$this->email->from('training@chetandalal.com', 'chetandalal.com');
 		$this->email->to('nadar.rajeshnadar@gmail.com');		
 	
 		$this->email->subject('Downtime user payment ');
@@ -761,19 +977,20 @@ class Register extends CI_Controller {
 		//echo $this->email->print_debugger(); 
 	}
 	private function mail_for_user_registration($data){		
-		$config['priority'] = 1;
-		$config['protocol']         = 'smtp'; 
-		$config['dkim_identity'] ="support@chetandalal.com";
+		// $config['priority'] = 1;
+		// $config['protocol']         = 'smtp'; 
+		// $config['dkim_identity'] ="support@chetandalal.com";
 		$this->load->library('email');	
-		$this->email->initialize($config);	
-		$this->email->from('support@chetandalal.com', 'chetandalal.com');
+		//$this->email->initialize($config);	
+		$this->email->from('training@cdimsacademy.com', 'CDIMS Academy');
 		$this->email->to($data['email']);		
 		$this->email->cc('registration@chetandalal.com');
 		$this->email->subject('Successful Registration ');
 		$template_email=$this->load->view('web/registration_success_mail_template',$data,true);
 		$this->email->message($template_email);		
 		$this->email->send();		
-		//$this->email->print_debugger();
+		// echo $this->email->print_debugger();
+		// exit();
 	}
 	/*public function mail_for_user_registration_test(){
 		$data=array(
@@ -786,7 +1003,7 @@ class Register extends CI_Controller {
 		$config['priority'] = 1;
 		$this->load->library('email');	
 		$this->email->initialize($config);	
-		$this->email->from('support@chetandalal.com', 'chetandalal.com');
+		$this->email->from('training@chetandalal.com', 'chetandalal.com');
 		$this->email->to('rajeshsnadar1989@gmail.com');		
 		//$this->email->cc('registration@chetandalal.com');
 		$this->email->subject('Successful Registration ');
@@ -795,8 +1012,6 @@ class Register extends CI_Controller {
 		echo $this->email->send();		
 		echo $this->email->print_debugger();
 	}*/
-
-
 	public function view_mail_template(){
 		$this->load->view('web/newsletter_subscription_mail_template');
 	}
@@ -813,9 +1028,9 @@ class Register extends CI_Controller {
 		$data['emailid']=$this->input->post('email');
 		$this->registerm->save_subscription($data);
 		$this->load->library('email');
-		$this->email->from('support@chetandalal.com', 'Newsletter Subscription');
+		$this->email->from('training@cdimsacademy.com', 'Newsletter Subscription');
 		$this->email->to($this->input->post('email'));
-		$this->email->cc('registration@chetandalal.com','Chetandalal - Newsletter subscription');
+		//$this->email->cc('registration@chetandalal.com','Chetandalal - Newsletter subscription');
 		$this->email->subject('Thanks for subscribing to chetandalal newsletter');
 		$email=explode('@', $this->input->post('email'));
 		$data['firstname']=$email['0'];

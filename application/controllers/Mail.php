@@ -146,8 +146,8 @@ class Mail extends CI_Controller {
 		));*/
 			
 		// $this->email->initialize($config);	
-		$this->email->set_header('X-DKIM', 'DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chetandalal.com; s=google;');
-		$this->email->from('info@chetandalal.com', 'Chetan Dalal');
+		$this->email->set_header('X-DKIM', 'DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cdimsacademy.com; s=google;');
+		$this->email->from('info@cdimsacademy.com', 'Chetan Dalal');
 		
 		
 		// $template_email=$data['content'];
@@ -216,8 +216,8 @@ class Mail extends CI_Controller {
 		$email=array();
 		foreach ($resultset as  $value) {
 			$this->email->initialize($config);
-			$this->email->from('info@chetandalal.com', 'chetandalal.com');		
-			$this->email->reply_to('training@chetandalal.com', 'chetandalal.com');		
+			$this->email->from('info@cdimsacademy.com', 'cdimsacademy.com');		
+			$this->email->reply_to('training@cdimsacademy.com', 'cdimsacademy.com');		
 			$this->email->subject("Reduce your Organisation's vulnerability against Frauds and Increase Your Profitability Next Year ....check out How?  ");
 			$this->email->to($value['emailid'],$value['emailid']);
 
@@ -309,7 +309,22 @@ class Mail extends CI_Controller {
 		$this->load->view('web/indpd70',$mailbody);
 	}
 
-
+	public function email_test(){
+		$this->load->library('email');
+		
+		$this->email->from('training@cdimsacademy.com', 'Name');
+		$this->email->to('atul.adhikari@camplus.co.in');
+		// $this->email->cc('another@example.com');
+		// $this->email->bcc('and@another.com');
+		
+		$this->email->subject('subject');
+		$this->email->message('message');
+		
+		$this->email->send();
+		
+		echo $this->email->print_debugger();
+		exit();
+	}
 
 	//Only to be used while testing
 	/*public function getCcMailIds(){

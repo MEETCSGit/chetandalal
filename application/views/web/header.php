@@ -150,11 +150,11 @@
         <div class="col-sm-2 col-md-2 hidden-xs "><a href="<?php echo base_url();?>"> <img src="<?php echo base_url('assets/');?>img/CD_LOGO1.png" class="header_logo_chetandalal"  alt="Chetan Dalal Investigation and Management Services"></a> </div>
         <div class="col-md-4 col-md-offset-1 hidden-xs hidden-sm">
           <ul class="partner">
-             <li class="partner-logo">
+            <!--  <li class="partner-logo">
                <a href="http://stantons.com.au/" target="_blank"> 
                   <img src="<?php echo base_url('assets/');?>img/stantons.png"  alt="Chetan Dalal Investigation and Management Services collaboration partner" class=" header_logo_stantons pull-right" title="Collaboration Partner : Stantons International- Australia" >
               </a> 
-            </li>
+            </li> -->
              <!-- <li class="partner-logo">
                <a href="http://www.gfsu.edu.in/"  target="_blank"> 
                   <img src="<?php //echo base_url('assets/');?>img/gfsu_logo.png"  alt="Chetan Dalal Investigation and Management Services collaboration partner " class="header_logo_gfsu_logo pull-right" title="Collaboration Partner : Gujarat Forensic Sciences University">

@@ -1,14 +1,19 @@
+<style type="text/css">
+  .about_justify{
+    text-align: justify !important;
+  }
+</style>
 <!-- Inner Banner Wrapper Start -->
 <div class="inner-banner">
   <div class="container">
     <div class="col-sm-12">
-      <h2>Forensic Accounting - Online Course </h2>
+      <h2>Certification in Forensic Accounting and Corporate Fraud Investigation <br />(CFACFI Course)</h2>
     </div>
     <div class="col-sm-12 inner-breadcrumb">
       <ul>
         <li><a href="<?php echo base_url();?>">Home</a></li>
         <li><a href="<?php echo base_url('courses');?>">Course</a></li>
-        <li>Online eLearning  Course</li>
+        <li>Certification in Forensic Accounting and Corporate Fraud Investigation (CFACFI Course)</li>
       </ul>
     </div>
   </div>
@@ -18,7 +23,7 @@
   <div class="container">
     <div class="row">
       <div class="inner-wrapper-main">
-        <h2>Certification    <span>course by CDIMS</span></h2>
+        <h2>Certification <span>in</span> Forensic Accounting<span> and</span> Corporate Fraud Investigation <br /><span>(CFACFI Course)</span></h2>
         <p class="about_justify">
           Forensic Accounting Certification Course will introduce you to the world of fraud and give a deeper insight to the traits of fraudsters and investigators. Learn how cheating and deception happens and methods and strategies to investigate financial crimes using CAATTs, Forensics Tools and Novel Methods. This course is for those Chartered Accountants, professionals and graduates (with work experience between 4 and 5 years) seeking an insight into the world of forensics &amp; fraud investigation and would like to add value to their careers. It is for those who wish to do something different from the run of the mill practice or move up the corporate ladder. There is no need to have detailed knowledge about accounting and auditing; only an open mind is required.  
         </p>
@@ -45,8 +50,8 @@
               <div class="accordion-group">
                 <div class="accordion-heading"> <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour"> <em class="icon-fixed-width fa fa-plus"></em>Fees  </a> </div>
                 <div style="height: 0px;" id="collapseFour" class="accordion-body collapse">
-                  <div class="accordion-inner"> The fees for this course is  <span><i class="fa fa-inr"></i> 15,000 + GST.</span> 
-                  <!-- <span alt="Introductory price till 30th june." >&nbsp;<i class="fa fa-inr"></i>7,000</span> inclusive of all taxes. Offer applicable till 31<sup>th</sup>  July 2017.  --> </div>
+                  <div class="accordion-inner"> The fees for this course is  <span><i class="fa fa-inr"></i> <strike>20,000</strike> <i class="fa fa-inr"></i> 11,500 + GST.Flat 43% Discount</span> 
+                  <!-- <span alt="Introductory price till 30th june." >&nbsp;<i class="fa fa-inr"></i>7,000</span> inclusive of all taxes. Offer applicable till 31<sup>th</sup>  July 2017. -->  </div>
                 </div>
               </div> 
               <p>&nbsp;</p>
@@ -77,12 +82,7 @@
                   <div class="accordion-inner"><p>3.1    Introduction to Digital Forensics and Its Usage - Digital Forensics what it and how to carry it out </p><p>3.2    Tools and Methods of Investigation</p><p>     3.3    Case Studies in Digital Forensics </p><p>    3.4    Interviews and Interactions    Objectives and Steps in Conducting Interviews </p><p>3.5    Field Surveillance - What is field investigations and case studies</p>  </div>
                 </div>
               </div>              
-              <div class="accordion-group">
-                <div class="accordion-heading"> <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#c10"> <em class="icon-fixed-width fa fa-plus"></em>Unit 4. Excel Tutorials    </a> </div>
-                <div style="height: 0px;" id="c10" class="accordion-body collapse">
-                  <div class="accordion-inner"> <p>4.1    Excel Tutorials-1    Referencing and ‘IF’ command, </p><p>4.2    Excel Tutorials-2    Countif, CounIfs, SumIf and SumIfs Commands</p><p>4.3    Excel Tutorials-3    Filters – Basic and Advance </p><p>4.4    Excel Tutorials-4    Sorting </p><p>4.5    Excel Tutorials-5    Vlookup </p><p>4.6    Excel Tutorials-6    Pivot Table, Data Models</p>   </div>
-                </div>
-              </div>                                        
+                                                    
             </div>
             <!-- end accordion -->
           </div>
@@ -104,12 +104,17 @@
             <div class="download-services">
               <!-- <h3 style="background-color: #2f506c;"><b>Registration Closed</b></h3> -->
               <h3>Book your seat and Enrol </h3>
+               <h4 style="color: #fff;"><strike><i class="fa fa-inr"></i>20,000</strike> &nbsp;<i class="fa fa-inr"></i>11,500&nbsp;(43%)</h4><br />
               <?php if(!$this->authorize->checkAliveSession()){?>
-              <a href="<?php echo base_url('login/?redirect_to=register/register-for-course-online')?>">Pay Now</a>
+              <a id="payment_link" href="<?php echo base_url('login/?redirect_to=register/register-for-course-online')?>">Pay Now</a>
               <?php  }else{ ?>
-              <a href="<?php echo base_url('register/register-for-course-online')?>">Pay Now</a>
+              <a id="payment_link" href="<?php echo base_url('register/register-for-course-online')?>">Pay Now</a>
               <?php  } ?>
             </div>
+          </div>
+          <div class="row">&nbsp;</div>
+          <div class="row">
+            <center><input type="checkbox" name="chkBoth" id="chkBoth"> Also Buy <b><a href="http://localhost/chetandalal/courses/course_details/3" target="_blank"> Excel Course </a></b> combined and get worth <i class="fa fa-inr"></i> 25,000 courses in just <i class="fa fa-inr"></i>12,500. Flat 50% Discount</center>
           </div>
           <div class="row">&nbsp;</div>
           <div class="row">
@@ -120,3 +125,23 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#chkBoth").click(function(){
+     if(this.checked) {        
+         <?php if(!$this->authorize->checkAliveSession()){?>
+          $("#payment_link").attr("href","<?php echo base_url('login/?redirect_to=register/register-for-combine-course')?>")
+          <?php  }else{ ?>
+          $("#payment_link").attr("href","<?php echo base_url('register/register-for-combine-course')?>");
+          <?php  } ?>
+      }else{
+         <?php if(!$this->authorize->checkAliveSession()){?>
+          $("#payment_link").attr("href","<?php echo base_url('login/?redirect_to=register/register-for-course-online')?>")
+          <?php  }else{ ?>
+          $("#payment_link").attr("href","<?php echo base_url('register/register-for-course-online')?>");
+          <?php  } ?>
+      }
+    });
+  });
+</script>
