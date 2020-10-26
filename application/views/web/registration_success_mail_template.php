@@ -331,13 +331,13 @@ a[x-apple-data-detectors=true] {
   <div style="line-height: 10px; font-size: 1px">&nbsp;</div>
   <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px;"><![endif]-->
 
-  <div>
+ <!--  <div>
     <center>
-      <u><a target="_blank" href="<?php echo base_url('courses/course_details/1')?>">Classroom Course<br/>
+      <u><a target="_blank" href="<?php echo base_url('courses/course_details/1')?>">Classroom Course<br/> -->
       <!-- <small><font color="red" style="font-size: 13px">(Special 10% discount for limited period)</font></small><br/>
       Forensic Accounting Certification 19 - 21 Jan, Mumbai --></a></u>
-     </center> 
-  </div>
+     <!-- </center> 
+  </div> -->
 
   <div style="line-height: 10px; font-size: 1px">&nbsp;</div>
 <!--[if !mso]><!--></div><!--<![endif]-->

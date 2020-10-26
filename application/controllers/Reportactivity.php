@@ -85,7 +85,7 @@ class Reportactivity extends CI_Controller {
 		$config['priority'] = 1;
 		$this->email->initialize($config);	
 		// $this->email->from('akshaydusane@gmail.com', 'chetandalal.com'); // test
-		$this->email->from('helpdesk@chetandalal.com', 'chetandalal.com'); //live
+		$this->email->from('helpdesk@cdimsacademy.com', 'cdimsacademy.com'); //live
 		
 		$this->email->subject($subject);
 		$this->email->to($to_mail);

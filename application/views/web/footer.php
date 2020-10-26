@@ -39,13 +39,13 @@
     </div> -->
     <div class="col-sm-5">
       <div class="contactus mt-10">
-        <h2>Collaborations</h2>
+      <!--   <h2>Collaborations</h2>
         <ul class="list-ul">
-          <!-- <li><a href="http://gfsu.edu.in" target="_blank"><i class="fa fa-link"></i>GFSU </a></li> -->
-          <!-- <li><i class="fa fa-phone"></i>+91 99999 99999</li> -->
+          <li><a href="http://gfsu.edu.in" target="_blank"><i class="fa fa-link"></i>GFSU </a></li>
+          <li><i class="fa fa-phone"></i>+91 99999 99999</li>
           <li><a  href="http://stanton.com.au/" target="_blank"><i class="fa fa-link"></i>Stantons International </a></li>
-        </ul>
-      </div>
+        </ul>-->
+      </div> 
     </div>
     <div class="col-sm-4">
       <div class="contactus">

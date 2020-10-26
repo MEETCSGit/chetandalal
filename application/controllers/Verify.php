@@ -167,7 +167,7 @@ class Verify extends CI_Controller {
 
 	private function sendMail($tomailid, $mailcontent, $tomailuserid, $mailsubject, $documentarr){
 		$this->load->library('email');
-		$this->email->from('support@chetandalal.com', 'chetandalal.com');
+		$this->email->from('training@cdimsacademy.com', 'cdimsacademy.com');
 		$this->email->subject($mailsubject);
 		$this->email->to($tomailid);
 		$this->email->cc('training@chetandalal.com');
@@ -212,7 +212,7 @@ class Verify extends CI_Controller {
 
 	private function sendVerifiedMail($tomailid, $mailsubject ,$mailcontent, $tomailuserid){
 		$this->load->library('email');
-		$this->email->from('support@chetandalal.com', 'chetandalal.com');
+		$this->email->from('training@cdimsacademy.com', 'cdimsacademy.com');
 		$this->email->subject($mailsubject);
 		$this->email->to($tomailid);
 		// $this->email->cc($data['cc_mail_ids']);

@@ -8,7 +8,7 @@
       <ul>
         <li><a href="<?php echo base_url();?>">Home</a></li>
         <li>Registration</li>
-        <li>Classroom Course</li>       
+        <li>Excel Course + CFACFI Course</li>       
       </ul>
     </div>
   </div>
@@ -16,7 +16,7 @@
 <section class="inner-wrapper">
   <div class="container">
     <div class="row">
-      <h2>CDIMS <span>CFACFI Course Enrollment</span> </h2>
+      <h2>Excel Course + CFACFI Course by CDIMS Enrollment</span> </h2>
       <div class="inner-wrapper-main">
         <!-- <div class="row">
             <marquee class="title" direction="left" behavior="alternate" scrolldelay="250">
@@ -31,18 +31,18 @@
                 </div>
             </marquee>
         </div> -->
-        <div class="col-md-12  ">
+        <div class="col-md-12">
           <div class="form">
             <form action='<?php echo base_url('register/payment-for-course');?>' name="payuForm" method='post'>
               <div class="row" >
                 <div class="col-md-6">
                   <label>Course Type </label><br />
-                  <input type="text" readonly class="txt" name="c_type" value="Online Course" disabled />     
-                  <input type="hidden" readonly class="txt" name="c_type_hid" id="c_type_hid" value="olc"  />              
+                  <input type="text" readonly class="txt" name="c_type" value="Online Excel Course + CFACFI Course" disabled />     
+                  <input type="hidden" readonly class="txt" name="c_type_hid" id="c_type_hid" value="occ"  />              
                 </div>
                 <div class="col-md-6">
                   <label>Amount </label><br />
-                  <input type="text" class="txt" readonly id="amount" name="amount" value="11,500" disabled />
+                  <input type="text" class="txt" readonly id="amount" name="amount" value="12500" disabled />
                 </div>                
               </div>
               <div class="row" >
@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-md-12 ordered-list" id="notes">
                     <ol>
-                        <li>The course needs to be finished within 6 months of date of enrolment.</li>
+                        <li>The course needs to be finished within 6 months of date of enrollment.</li>
                         <li>Please ensure that your name is correctly spelled as this is what will be used for your final certificate.</li>
                         <li id="cert_note"><i style="color: red;">You can proceed with the course, but the certificate will be issued only after graduation (within the duration of the course)</i></li>
                     </ol>

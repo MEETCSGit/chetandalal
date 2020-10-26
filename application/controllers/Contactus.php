@@ -67,12 +67,14 @@ class Contactus extends CI_Controller {
 		$data['email']=$this->input->post('email');
 		$data['phone']=$this->input->post('mob');
 		$data['message']=$message;
-		$this->email->from('support@chetandalal.com','Support @Chetandalal.com');
+		$this->email->from('training@cdimsacademy.com','CDIMS Training');
 		$this->email->cc('training@chetandalal.com');
 		$this->email->to($email_from,$name);
 		$this->email->subject($email_subject);
 		$email_template=$this->load->view('web/contact_us_mail_template',$data,true);
 		$this->email->message($email_template);
+			
+		//print_r()
 		$data=array();
 		if($this->email->send()){
 			$audit_log=array('page'=>"Contact Us",'action'=>'4','description'=>'Mail Sent at ');

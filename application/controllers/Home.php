@@ -25,6 +25,7 @@ class Home extends CI_Controller {
 		$this->load->helper(array('url','html','api_helper'));
 		$this->load->library(array('session'));	
 		$this->load->model('homem');
+		redirect(base_url(),'refresh');
 	}
 	/**
 	 * home page

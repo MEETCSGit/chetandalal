@@ -79,7 +79,7 @@ class Domain_completion extends CI_Controller {
 
 		$this->load->library('email');	
 		$this->email->initialize($config);	
-		$this->email->from('helpdesk@chetandalal.com', 'chetandalal.com');
+		$this->email->from('helpdesk@cdimsacademy.com', 'cdimsacademy.com');
 				
 		$this->email->to($this->input->post('to'));		
 		
