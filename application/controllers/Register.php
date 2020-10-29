@@ -145,7 +145,7 @@ class Register extends CI_Controller {
 			$this->authorize->audit_log($audit_log);
 		redirect('home/?message="Email verification failed!&status=0&event=verifyemail"','refresh');
 	}
-	public function enrolUserRest($roleid, $userid, $courseid){
+	public function enrolUserRest($roleid, $userid, $courseid,$days){
 		$this->load->library('curl');
 		$site = moodle_site();
 		$token = '799ed071b21aef609de0fa42df0900a7';
@@ -157,7 +157,7 @@ class Register extends CI_Controller {
 		$user->userid = $userid;
 		$user->courseid = $courseid;
 		$user->timestart = time();
-		$user->timeend = time() + (93 * 24 * 60 * 60);
+		$user->timeend = time() + ($days * 24 * 60 * 60);
 		$enrol = array($user);
 		$params = array('enrolments' => $enrol);
 		$serverurl = $domainname . '/webservice/rest/server.php'. '?wstoken=' . $token . '&wsfunction='.$functionname.'&moodlewsrestformat=json';
@@ -264,7 +264,7 @@ class Register extends CI_Controller {
 	  		$data['subject']="Successful Enrollment - Chetandalal Classroom Course Enrollment "; 
 	  		if($data['udf3']==='olc'){
 	  			$coupon_code_data=$this->registerm->get_transaction_coupon_code($data['oid']);
-	  			$this->enrolUserRest(5,$data['user_id'],10);	  				  			
+	  			$this->enrolUserRest(5,$data['user_id'],10,60);	  				  			
 	  			if(!empty(@$coupon_code_data[0]['coupon_code'])){
 	  				$this->registerm->update_coupon_code_used($coupon_code_data[0]['coupon_code']);
 	  			}	  				
@@ -273,7 +273,7 @@ class Register extends CI_Controller {
 	  			$data['subject']=@$data['firstname'].", Successful Enrollment - Chetandalal Online Course";
 	  		}else if($data['udf3']==='oec'){
 	  			$coupon_code_data=$this->registerm->get_transaction_coupon_code($data['oid']);
-	  			$this->enrolUserRest(5,$data['user_id'],8);	  				  			
+	  			$this->enrolUserRest(5,$data['user_id'],8,30);	  				  			
 	  			if(!empty(@$coupon_code_data[0]['coupon_code'])){
 	  				$this->registerm->update_coupon_code_used($coupon_code_data[0]['coupon_code']);
 	  			}	  				
@@ -282,8 +282,8 @@ class Register extends CI_Controller {
 	  			$data['subject']=@$data['firstname'].", Successful Enrollment - Chetandalal Online Course";
 	  		}else if($data['udf3']==='occ'){
 	  			$coupon_code_data=$this->registerm->get_transaction_coupon_code($data['oid']);
-	  			$this->enrolUserRest(5,$data['user_id'],10);
-	  			$this->enrolUserRest(5,$data['user_id'],8);	  				  			
+	  			$this->enrolUserRest(5,$data['user_id'],10,90);
+	  			$this->enrolUserRest(5,$data['user_id'],8,90);	  				  			
 	  			if(!empty(@$coupon_code_data[0]['coupon_code'])){
 	  				$this->registerm->update_coupon_code_used($coupon_code_data[0]['coupon_code']);
 	  			}	  				

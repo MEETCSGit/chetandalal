@@ -30,7 +30,7 @@
                       <li><i class="fa fa-clock-o" aria-hidden="true"></i> Anytime</li>
                     </ul>
                     <h5><b>Excel Course form CDIMS</b></h5>
-                    <p class="about_justify">Learn Excel basics and advance applications with hand-on experience to enhance your productivity in any daily use.  Check out how you can ease your daily routines and automate them without any coding. eLearning module  with simple step-by-step explanations.This course will be useful for all levels from DEO (Data Entry Operator) to CEO. This course is beneficial to all <br /><br /></p>
+                    <p class="about_justify">Learn Excel basics and advance applications with hand-on experience to enhance your productivity in any daily use.  Check out how you can ease your daily routines and automate them without any coding. eLearning module  with simple step-by-step explanations.This course will be useful for all levels from DEO (Data Entry Operator) to CEO. <br />This course is beneficial to all <br /><br /></p>
                    <!--  <p>&nbsp;</p> -->
                     <ul class="price-and-seats">
                         <!-- <li><strong><i class="fa fa-inr"></i>30,000 &nbsp;&nbsp;&nbsp;</strong></li> -->
