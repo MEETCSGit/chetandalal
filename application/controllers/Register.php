@@ -1084,8 +1084,6 @@ class Register extends CI_Controller {
 			redirect('courses','refresh');
 		}		
 		$data=$this->registerm->get_orderDetails($this->session->userdata('user_id'));
-		/*print_r($data);
-		exit;*/
 		if(is_array(@$data)){
 			foreach ($data as  $value) {
 				if($value['c_type']=='olc'){
